@@ -34,7 +34,7 @@
         }
 
         .container {
-            padding-top: 2rem;
+            padding-top: 7rem;
         }
 
         .form-container {
@@ -90,7 +90,7 @@
             border-radius: 10px;
             font-weight: 600;
             color: white;
-            width: 100%;
+            width: 40%;
             margin-top: 1rem;
             transition: all 0.3s ease;
         }
@@ -181,7 +181,9 @@
                     </div>
                 </div>
 
+                <div class="text-center mt-4">
                 <button type="submit" class="btn btn-submit">Add Book to Library</button>
+                </div>
             </form>
         </div>
     </div>

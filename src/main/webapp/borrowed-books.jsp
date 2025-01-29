@@ -9,6 +9,7 @@
         <title>Borrowed Books</title>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Custom Styles -->
         <style>
@@ -38,19 +39,38 @@
         }
 
             .container {
-                margin-top: 10rem;
+                margin-top: 7rem;
             }
+            .page-title {
+            color: #2d3436;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
 
             /* Table Styling */
             .table {
-                background-color: rgba(255, 255, 255, 0.9);
-                border-radius: 10px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            }
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
 
-            .table th, .table td {
-                vertical-align: middle;
-            }
+        .table th {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            padding: 1.2rem 1rem;
+            border: none;
+        }
+
+        .table td {
+            padding: 1rem;
+            vertical-align: middle;
+            border-color: #f1f3f5;
+        }
 
             .no-books {
                 text-align: center;
@@ -60,15 +80,20 @@
 
             /* Button Styling */
             .btn-back {
-                background-color: #6c757d;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 5px;
-                font-size: 1.2rem;
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            color: white;
+            width: 40%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
             }
 
             .btn-back:hover {
-                background-color: #5a6268;
+                transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 28, 113, 0.2);
             }
         </style>
     </head>
@@ -101,10 +126,10 @@
 
         <!-- Main Content -->
         <div class="container">
-            <h2 class="text-center mb-4">Currently Borrowed Books</h2>
+            <h2 class="page-title">Currently Borrowed Books</h2>
 
             <!-- Borrowed Books Table -->
-            <table class="table table-striped table-bordered table-hover text-center">
+            <table class="table">
                 <thead class="table-dark">
                     <tr>
                         <th>Title</th>
