@@ -1,0 +1,16 @@
+# Maven build directory
+/target/
+
+# Eclipse and NetBeans IDE files
+/.classpath
+/.project
+/.settings/
+/nb-configuration.xml
+
+# Maven wrapper files
+/mvnw
+/mvnw.cmd
+
+# OS and system files
+.DS_Store
+Thumbs.db
