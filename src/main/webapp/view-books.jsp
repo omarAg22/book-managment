@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Books - Modern Library</title>
+    <title>Voir les livres - Bibliothèque Moderne</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,6 +14,8 @@
             font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .navbar {
@@ -37,8 +39,8 @@
         }
 
         .container {
-            padding: 2rem;
-            margin-top:10rem;
+            flex: 1;
+            margin-top: 7rem;
         }
 
         .page-title {
@@ -163,30 +165,30 @@
             color: white;
             padding: 1.5rem 0;
             margin-top: 3rem;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <!-- Same navbar structure as before -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Modern Library</a>
+            <a class="navbar-brand" href="#">Bibliothèque Moderne</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="ViewBooksServlet">View Books</a>
+                        <a class="nav-link active" href="ViewBooksServlet">Voir les livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add-book.jsp">Add Books</a>
+                        <a class="nav-link" href="add-book.jsp">Ajouter des livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="BorrowedBooksServlet">Borrow History</a>
+                        <a class="nav-link" href="BorrowedBooksServlet">Historique des emprunts</a>
                     </li>
                 </ul>
             </div>
@@ -194,22 +196,22 @@
     </nav>
     
     <div class="container">
-        <h1 class="page-title">Library Collection</h1>
+        <h1 class="page-title">Collection de la bibliothèque</h1>
 
         <form action="SearchBooksServlet" method="get" class="search-form">
             <div class="d-flex gap-3">
-                <input type="text" name="query" class="form-control" placeholder="Search by title, author, or category">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <input type="text" name="query" class="form-control" placeholder="Rechercher par titre, auteur ou catégorie">
+                <button type="submit" class="btn btn-primary">Recherche</button>
             </div>
         </form>
 
-        <table class="table">
+        <table class="table text-center">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Availability</th>
-                    <th>Category</th>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Disponibilité</th>
+                    <th>Catégorie</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -254,8 +256,8 @@
         </table>
     </div>
 
-    <footer class="text-center">
-        <p class="mb-0">&copy; 2024 Modern Library. All rights reserved.</p>
+    <footer>
+        <p>&copy; 2024 Bibliothèque Moderne. Tous droits réservés.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

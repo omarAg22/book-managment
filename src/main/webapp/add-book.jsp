@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Book - Modern Library</title>
+    <title>Ajouter un livre - Bibliothèque Moderne</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -90,7 +90,7 @@
             border-radius: 10px;
             font-weight: 600;
             color: white;
-            width: 40%;
+            width: 50%;
             margin-top: 1rem;
             transition: all 0.3s ease;
         }
@@ -129,23 +129,23 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Modern Library</a>
+            <a class="navbar-brand" href="#">Bibliothèque Moderne</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ViewBooksServlet">View Books</a>
+                        <a class="nav-link" href="ViewBooksServlet">Voir les livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="add-book.jsp">Add Books</a>
+                        <a class="nav-link active" href="add-book.jsp">Ajouter des livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="BorrowedBooksServlet">Borrow History</a>
+                        <a class="nav-link" href="BorrowedBooksServlet">Historique des emprunts</a>
                     </li>
                 </ul>
             </div>
@@ -154,35 +154,35 @@
 
     <div class="container">
         <div class="form-container">
-            <h2 class="page-title">Add New Book</h2>
+            <h2 class="page-title">Ajouter un nouveau livre</h2>
             
             <form action="addBook" method="post">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Book Title" required>
-                    <label for="title">Book Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Titre du livre" required>
+                    <label for="title">Titre du livre</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="author" name="author" placeholder="Author Name" required>
-                    <label for="author">Author Name</label>
+                    <input type="text" class="form-control" id="author" name="author" placeholder="Nom de l'auteur" required>
+                    <label for="author">Nom de l'auteur</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="category" name="category" placeholder="Book Category" required>
-                    <label for="category">Book Category</label>
+                    <input type="text" class="form-control" id="category" name="category" placeholder="Catégorie du livre" required>
+                    <label for="category">Catégorie du livre</label>
                 </div>
 
                 <div class="availability-section">
                     <div class="form-check">
                         <input type="checkbox" id="availability" name="availability" value="true" class="form-check-input">
                         <label class="form-check-label" for="availability">
-                            Available for Borrowing
+                            Disponible pour emprunt
                         </label>
                     </div>
                 </div>
 
                 <div class="text-center mt-4">
-                <button type="submit" class="btn btn-submit">Add Book to Library</button>
+                <button type="submit" class="btn btn-submit">Ajouter un livre à la bibliothèque</button>
                 </div>
             </form>
         </div>

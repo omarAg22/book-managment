@@ -29,14 +29,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrow Book</title>
-    <!-- Bootstrap CSS -->
+    <title>Emprunter un livre - Bibliothèque Moderne</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom Styles -->
     <style>
-        /* Navigation Bar */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -50,82 +54,111 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .nav-link.active {
             background: linear-gradient(135deg, #3a1c71, #d76d77);
             color: white !important;
             border-radius: 8px;
         }
 
-        /* Form Styling */
         .container {
-            margin-top: 10rem;
+            flex: 1;
+            margin-top: 8rem;
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .btn-lg {
-            font-size: 1.2rem;
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2d3436;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 28, 113, 0.2);
+        }
+        
+        .btn-secondary {
+            font-size: 1rem;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Modern Library</a>
+            <a class="navbar-brand" href="#">Bibliothèque Moderne</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="ViewBooksServlet">View Books</a>
+                        <a class="nav-link active" href="ViewBooksServlet">Voir les livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add-book.jsp">Add Books</a>
+                        <a class="nav-link" href="add-book.jsp">Ajouter des livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="BorrowedBooksServlet">Borrow History</a>
+                        <a class="nav-link" href="BorrowedBooksServlet">Historique des emprunts</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Borrow Book Form Section -->
     <div class="container">
-        <h2 class="text-center mb-4">Borrow Book</h2>
-
-        <!-- Book Details Card -->
         <div class="card mx-auto" style="max-width: 600px;">
-            <div class="card-body">
-                <p class="fs-5 text-center">
-                    Are you sure you want to borrow the book: <br>
-                    <strong>"<%= book.getTitle() %>"</strong> by <strong><%= book.getAuthor() %></strong>?
-                </p>
-                <p class="text-center mb-4">
-                    <strong>Borrow Date:</strong> <%= borrowDate %>
-                </p>
-
-                <!-- Borrow Form -->
-                <form action="BorrowBookServlet" method="post" class="text-center">
-                    <input type="hidden" name="id" value="<%= book.getId() %>">
-                    <button type="submit" class="btn btn-success btn-lg me-2">Yes, Borrow Book</button>
-                    <a href="ViewBooksServlet" class="btn btn-secondary btn-lg">Cancel</a>
-                </form>
-            </div>
+            <h1 class="card-title">Emprunter un livre</h1>
+            <p class="card-text"><strong>Titre:</strong> <%= book.getTitle() %></p>
+            <p class="card-text"><strong>Auteur:</strong> <%= book.getAuthor() %></p>
+            <p class="card-text"><strong>Catégorie:</strong> <%= book.getCategory() %></p>
+            <p class="card-text"><strong>Date d'emprunt:</strong> <%= borrowDate %></p>
+            <form action="BorrowBookServlet" method="post">
+                <input type="hidden" name="id" value="<%= book.getId() %>">
+                <button type="submit" class="btn btn-primary">Confirmer l'emprunt</button>
+                <a href="ViewBooksServlet" class="btn btn-secondary">Annuler</a>
+            </form>
         </div>
     </div>
 
+    <footer>
+        <p>&copy; 2024 Bibliothèque Moderne. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

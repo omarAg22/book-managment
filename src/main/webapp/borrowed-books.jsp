@@ -6,11 +6,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Borrowed Books</title>
+        <title>Livres empruntés</title>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
         <!-- Custom Styles -->
         <style>
        body {
@@ -101,23 +101,23 @@
         <!-- Navigation Bar -->
        <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Modern Library</a>
+            <a class="navbar-brand" href="#">Bibliothèque Moderne</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ViewBooksServlet">View Books</a>
+                        <a class="nav-link" href="ViewBooksServlet">Voir les livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add-book.jsp">Add Books</a>
+                        <a class="nav-link" href="add-book.jsp">Ajouter des livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="BorrowedBooksServlet">Borrow History</a>
+                        <a class="nav-link active" href="BorrowedBooksServlet">Historique des emprunts</a>
                     </li>
                 </ul>
             </div>
@@ -126,17 +126,17 @@
 
         <!-- Main Content -->
         <div class="container">
-            <h2 class="page-title">Currently Borrowed Books</h2>
+            <h2 class="page-title">Livres actuellement empruntés</h2>
 
             <!-- Borrowed Books Table -->
-            <table class="table">
+            <table class="table text-center">
                 <thead class="table-dark">
                     <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                        <th>Borrow Date</th>
-                        <th>Return Date</th>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Catégorie</th>
+                        <th>Date d'emprunt</th>
+                        <th>Date de retour</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -157,7 +157,7 @@
                         } else {
                     %>
                     <tr>
-                        <td colspan="5" class="no-books">No books are currently borrowed.</td>
+                        <td colspan="5" class="no-books">Aucun livre n'est actuellement emprunté.</td>
                     </tr>
                     <%
                         }
@@ -167,9 +167,9 @@
 
             <!-- Back Button -->
             <div class="text-center mt-4">
-                <a href="ViewBooksServlet" class="btn btn-back btn-lg">Back to All Books</a>
+                <a href="ViewBooksServlet" class="btn btn-back btn-lg">Retour à tous les livres</a>
             </div>
         </div>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
