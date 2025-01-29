@@ -6,154 +6,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Books</title>
-    <!-- Bootstrap CSS -->
+    <title>View Books - Modern Library</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .body_font {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            min-height: 100vh;
         }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            color: white !important;
+            border-radius: 8px;
+        }
+
         .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            padding: 2rem;
+            margin-top:10rem;
         }
-        h1 {
-            color: #333;
-            font-size: 2.5rem;
-            font-weight: 600;
-        }
-        .table th, .table td {
-            vertical-align: middle;
-            padding: 12px;
-        }
-        .table-dark {
-            background-color: #212529; /* Dark background for the table header */
-            color: white;
-        }
-        .table-striped tbody tr:nth-child(odd) {
-            background-color: #f9f9f9; /* Light grey for odd rows */
-        }
-        .actions a, .actions button {
-            margin-right: 5px;
-        }
-        .no-books {
+
+        .page-title {
+            color: #2d3436;
+            font-weight: 700;
+            margin-bottom: 2rem;
             text-align: center;
-            font-size: 1.2em;
-            color: #777;
         }
-        .borrow {
-            background-color: #28a745; /* Green for Borrow */
-            color: white;
-            border-radius: 5px;
-            padding: 8px 15px;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+
+        .search-form {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
         }
-        .borrow:hover {
-            opacity: 0.9;
-            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
-        }
-        .delete {
-            background-color: #dc3545; /* Red for Delete */
-            color: white;
-            border-radius: 5px;
-            padding: 8px 15px;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
-        }
-        .delete:hover {
-            opacity: 0.9;
-            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
-        }
-        .return {
-            background-color: #ffc107; /* Yellow for Return */
-            color: black;
-            border-radius: 5px;
-            padding: 8px 15px;
-            box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
-        }
-        .return:hover {
-            opacity: 0.9;
-            box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
-        }
+
         .search-form input {
-            max-width: 400px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            padding: 0.8rem 1.2rem;
+            transition: all 0.3s ease;
         }
 
-        /* Navbar Styling (Matching your design colors) */
-             .navbar {
-                background-color: #fff;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            }
+        .search-form input:focus {
+            border-color: #3a1c71;
+            box-shadow: 0 0 0 3px rgba(58, 28, 113, 0.1);
+        }
 
-            .navbar-brand {
-                font-size: 1.8rem;
-                font-family: 'Arial', sans-serif;
-                font-weight: bold;
-                color: red !important;
-            }
+        .search-form button {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-            .nav-link {
-                color: grey !important;
-                font-weight: 500;
-            }
+        .search-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 28, 113, 0.2);
+        }
 
-            .nav-link:hover {
-                color: black !important;
-            }
+        .table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
 
-            .nav-link.active {
-                background-color: red;
-                color: white !important;
-                border-radius: 5px;
-                padding-left: 5px;
-            }
+        .table th {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            padding: 1.2rem 1rem;
+            border: none;
+        }
 
+        .table td {
+            padding: 1rem;
+            vertical-align: middle;
+            border-color: #f1f3f5;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .bg-success {
+            background: linear-gradient(135deg, #00b09b, #96c93d) !important;
+        }
+
+        .bg-danger {
+            background: linear-gradient(135deg, #eb3349, #f45c43) !important;
+        }
+
+        .btn-action {
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0 0.2rem;
+        }
+
+        .borrow {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+            border: none;
+        }
+
+        .return {
+            background: linear-gradient(135deg, #f7b733, #fc4a1a);
+            color: white;
+            border: none;
+        }
+
+        .delete {
+            background: linear-gradient(135deg, #eb3349, #f45c43);
+            color: white;
+            border: none;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        .no-books {
+            padding: 3rem;
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
     </style>
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Online Library</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="ViewBooksServlet">View Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="add-book.jsp">Add Book</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="BorrowedBooksServlet">Borrowed Books</a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Same navbar structure as before -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Modern Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ViewBooksServlet">View Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add-book.jsp">Add Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="BorrowedBooksServlet">Borrow History</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">Library Collection</h1>
 
-    <!-- Main Content -->
-    <div class="container mt-5 body_font">
-        <!-- Page Title -->
-        <h1 class="text-center mb-4">List of Books</h1>
-
-        <!-- Search Form -->
-        <form action="SearchBooksServlet" method="get" class="search-form mb-4 d-flex justify-content-center">
-            <input type="text" name="query" class="form-control me-2" placeholder="Search by title, author, or category">
-            <button type="submit" class="btn btn-primary">Search</button>
+        <form action="SearchBooksServlet" method="get" class="search-form">
+            <div class="d-flex gap-3">
+                <input type="text" name="query" class="form-control" placeholder="Search by title, author, or category">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
         </form>
 
-        <!-- Books Table -->
-        <table class="table table-striped table-bordered text-center align-middle">
-            <thead class="table-dark">
+        <table class="table">
+            <thead>
                 <tr>
                     <th>Title</th>
                     <th>Author</th>
@@ -173,20 +224,20 @@
                     <td><%= book.getAuthor() %></td>
                     <td>
                         <span class="badge <%= book.isAvailabile() ? "bg-success" : "bg-danger" %>">
-                            <%= book.isAvailabile() ? "Available" : "Not Available" %>
+                            <%= book.isAvailabile() ? "Disponible" : "Non disponible" %>
                         </span>
                     </td>
                     <td><%= book.getCategory() %></td>
                     <td class="actions">
                         <% if (book.isAvailabile()) { %>
-                            <a href="borrow-book.jsp?id=<%= book.getId() %>" class="borrow btn btn-sm">Borrow</a>
+                            <a href="borrow-book.jsp?id=<%= book.getId() %>" class="borrow btn btn-sm">Emprunter</a>
                         <% } else { %>
                             <form action="ReturnBookServlet" method="post" style="display: inline;">
                                 <input type="hidden" name="id" value="<%= book.getId() %>">
-                                <button type="submit" class="return btn btn-sm">Return</button>
+                                <button type="submit" class="return btn btn-sm">Retourner</button>
                             </form>
                         <% } %>
-                        <a href="delete-book.jsp?id=<%= book.getId() %>" class="delete btn btn-sm">Delete</a>
+                        <a href="delete-book.jsp?id=<%= book.getId() %>" class="delete btn btn-sm">Supprimer</a>
                     </td>
                 </tr>
                 <%
@@ -194,7 +245,7 @@
                     } else {
                 %>
                 <tr>
-                    <td colspan="5" class="no-books">No books found.</td>
+                    <td colspan="5" class="no-books">Aucun livre trouvé.</td>
                 </tr>
                 <%
                     }
@@ -203,12 +254,10 @@
         </table>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-3" style="background-color: #212529; color: white;">
-        <p>&copy; 2024 Library Manager. All rights reserved.</p>
+    <footer class="text-center">
+        <p class="mb-0">&copy; 2024 Modern Library. All rights reserved.</p>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
