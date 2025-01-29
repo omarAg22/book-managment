@@ -12,37 +12,33 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Custom Styles -->
         <style>
-            /* Navbar and Navigation Styles */
-            .navbar {
-                background-color: #fff;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            }
+       body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
 
-            .navbar-brand {
-                font-size: 1.8rem;
-                font-family: 'Arial', sans-serif;
-                font-weight: bold;
-                color: red !important;
-            }
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
 
-            .nav-link {
-                color: grey !important;
-                font-weight: 500;
-            }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-            .nav-link:hover {
-                color: black !important;
-            }
-
-            .nav-link.active {
-                background-color: red;
-                color: white !important;
-                border-radius: 5px;
-                padding-left: 5px;
-            }
+        .nav-link.active {
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
+            color: white !important;
+            border-radius: 8px;
+        }
 
             .container {
-                margin-top: 30px;
+                margin-top: 10rem;
             }
 
             /* Table Styling */
@@ -78,33 +74,33 @@
     </head>
     <body>
         <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Online Library</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ViewBooksServlet">View Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="add-book.jsp">Add Book</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="BorrowedBooksServlet">Borrowed Books</a>
-                        </li>
-                    </ul>
-                </div>
+       <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Modern Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ViewBooksServlet">View Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add-book.jsp">Add Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="BorrowedBooksServlet">Borrow History</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
         <!-- Main Content -->
-        <div class="container mt-5">
+        <div class="container">
             <h2 class="text-center mb-4">Currently Borrowed Books</h2>
 
             <!-- Borrowed Books Table -->

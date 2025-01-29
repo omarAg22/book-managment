@@ -36,22 +36,29 @@
     <!-- Custom Styles -->
     <style>
         /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
         .navbar-brand {
             font-size: 1.8rem;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            color: red !important;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-link.active {
-            background-color: red;
+            background: linear-gradient(135deg, #3a1c71, #d76d77);
             color: white !important;
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
         /* Form Styling */
         .container {
-            margin-top: 30px;
+            margin-top: 10rem;
         }
 
         .card {
@@ -69,10 +76,10 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Online Library</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Modern Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -81,7 +88,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ViewBooksServlet">View Books</a>
+                        <a class="nav-link active" href="ViewBooksServlet">View Books</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="add-book.jsp">Add Books</a>
@@ -95,7 +102,7 @@
     </nav>
 
     <!-- Borrow Book Form Section -->
-    <div class="container mt-5">
+    <div class="container">
         <h2 class="text-center mb-4">Borrow Book</h2>
 
         <!-- Book Details Card -->
